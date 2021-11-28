@@ -27,6 +27,15 @@ namespace ProjetoEngenhariaSoftware.Controllers
             return Content(HttpStatusCode.OK, Banco.selectAll());
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        [SwaggerResponse(HttpStatusCode.OK, "Return a list of pets", typeof(List<PetClass>))]
+        [SwaggerResponse(HttpStatusCode.Unauthorized, "Custom exception indicating that api token is not valid or has not been reported", typeof(Exception))]
+        public IHttpActionResult GetByID(int id)
+        {
+            return Content(HttpStatusCode.OK, Banco.select(id));
+        }
+
         [HttpPost]
         [AllowAnonymous]
         [SwaggerResponse(HttpStatusCode.OK, "Return the id from this pet", typeof(int))]

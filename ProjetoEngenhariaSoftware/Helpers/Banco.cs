@@ -37,7 +37,7 @@ namespace ProjetoEngenhariaSoftware.Helpers
                 var a = memoria.Where(x => x.id == id).FirstOrDefault();
                 memoria.Remove(a);
         }
-        public static PetClass select(int ID = 0)
+        public static PetClass select(int ID)
         {
             if(ID != 0)
             return memoria[ID - 1];

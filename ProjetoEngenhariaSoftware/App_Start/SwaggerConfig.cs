@@ -105,7 +105,7 @@ namespace ProjetoEngenhariaSoftware
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        c.IncludeXmlComments("C:\\inetpub\\wwwroot\\Faculdade\\EngSoft\\ProjetoEngenhariaSoftware.XML");
+                        c.IncludeXmlComments("C:\\inetpub\\Faculdade\\bin\\ProjetoEngenhariaSoftware.XML");
                         
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
