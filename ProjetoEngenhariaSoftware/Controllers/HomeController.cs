@@ -12,21 +12,25 @@ namespace ProjetoEngenhariaSoftware.Controllers
 {
     public class HomeController : ApiController
     {
-        // <summary>
-        /// Return the access token
+        /// <summary>
+        /// Return a list of pets
         /// </summary>
-        /// <param name="ObjUsuario">authentication data</param>
-        /// <returns>User</returns>
-        /// <remarks>AccessLevel is not a required</remarks>
+        /// <returns>Return a list of pets</returns>
         [HttpGet]
-        [AllowAnonymous]
         [SwaggerResponse(HttpStatusCode.OK, "Return a list of pets", typeof(List<PetClass>))]
         [SwaggerResponse(HttpStatusCode.Unauthorized, "Custom exception indicating that api token is not valid or has not been reported", typeof(Exception))]
+        [AllowAnonymous]
+
         public IHttpActionResult GetAllPets()
         {
             return Content(HttpStatusCode.OK, Banco.selectAll());
         }
 
+        /// <summary>
+        /// Return a list of pets
+        /// </summary>
+        /// <param name="id"> a id for a PetClass list</param>
+        /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
         [SwaggerResponse(HttpStatusCode.OK, "Return a list of pets", typeof(List<PetClass>))]
@@ -36,15 +40,27 @@ namespace ProjetoEngenhariaSoftware.Controllers
             return Content(HttpStatusCode.OK, Banco.select(id));
         }
 
+        /// <summary>
+        /// insert a pet in list 
+        /// </summary>
+        /// <param name="Pet">object</param>
+        /// <returns></returns>
         [HttpPost]
-        [AllowAnonymous]
         [SwaggerResponse(HttpStatusCode.OK, "Return the id from this pet", typeof(int))]
         [SwaggerResponse(HttpStatusCode.Unauthorized, "Custom exception indicating that api token is not valid or has not been reported", typeof(Exception))]
+        [AllowAnonymous]
+
         public IHttpActionResult InsertPets(PetClass Pet)
         {
             return Content(HttpStatusCode.OK, Banco.insert(Pet));
         }
 
+        /// <summary>
+        /// update a pet from a list 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="pet"></param>
+        /// <returns></returns>
         [HttpPut]
         [AllowAnonymous]
         [SwaggerResponse(HttpStatusCode.OK, "Return a confirmation to update", typeof(bool))]
@@ -54,6 +70,11 @@ namespace ProjetoEngenhariaSoftware.Controllers
             return Content(HttpStatusCode.OK, Banco.update(pet,id));
         }
 
+        /// <summary>
+        /// delete pet from a list
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         [AllowAnonymous]
         [SwaggerResponse(HttpStatusCode.OK, "Return a list of pets", typeof(bool))]
