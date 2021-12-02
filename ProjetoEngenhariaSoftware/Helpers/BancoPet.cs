@@ -6,7 +6,7 @@ using System.Web;
 
 namespace ProjetoEngenhariaSoftware.Helpers
 {
-    public class Banco
+    public class BancoPet
     {
         private static List<PetClass> memoria;
 
@@ -20,7 +20,6 @@ namespace ProjetoEngenhariaSoftware.Helpers
             memoria.Add(pet);
             return pet.id;
         }
-
         public static bool update(PetClass pet, int id)
         {
             try
@@ -43,7 +42,6 @@ namespace ProjetoEngenhariaSoftware.Helpers
             return memoria[ID - 1];
             return null;
         }
-
         public static List<PetClass> selectAll()
         {
             return memoria;

@@ -191,13 +191,16 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OngController.cs" />
+    <Compile Include="Controllers\PetController.cs" />
     <Compile Include="Filters\AuthorizeFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\Banco.cs" />
+    <Compile Include="Helpers\BancoOng.cs" />
+    <Compile Include="Helpers\BancoPet.cs" />
     <Compile Include="Helpers\JWTHelper.cs" />
+    <Compile Include="Models\OngClass.cs" />
     <Compile Include="Models\PetClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

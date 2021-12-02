@@ -10,7 +10,7 @@ using System.Web.Http;
 
 namespace ProjetoEngenhariaSoftware.Controllers
 {
-    public class HomeController : ApiController
+    public class PetController : ApiController
     {
         // <summary>
         /// Return the access token
@@ -24,7 +24,7 @@ namespace ProjetoEngenhariaSoftware.Controllers
         [SwaggerResponse(HttpStatusCode.Unauthorized, "Custom exception indicating that api token is not valid or has not been reported", typeof(Exception))]
         public IHttpActionResult GetAllPets()
         {
-            return Content(HttpStatusCode.OK, Banco.selectAll());
+            return Content(HttpStatusCode.OK, BancoPet.selectAll());
         }
 
         [HttpPost]
@@ -33,7 +33,7 @@ namespace ProjetoEngenhariaSoftware.Controllers
         [SwaggerResponse(HttpStatusCode.Unauthorized, "Custom exception indicating that api token is not valid or has not been reported", typeof(Exception))]
         public IHttpActionResult InsertPets(PetClass Pet)
         {
-            return Content(HttpStatusCode.OK, Banco.insert(Pet));
+            return Content(HttpStatusCode.OK, BancoPet.insert(Pet));
         }
 
         [HttpPut]
@@ -42,7 +42,7 @@ namespace ProjetoEngenhariaSoftware.Controllers
         [SwaggerResponse(HttpStatusCode.Unauthorized, "Custom exception indicating that api token is not valid or has not been reported", typeof(Exception))]
         public IHttpActionResult UpdatePets([FromUri]int id, [FromBody] PetClass pet)
         {
-            return Content(HttpStatusCode.OK, Banco.update(pet,id));
+            return Content(HttpStatusCode.OK, BancoPet.update(pet,id));
         }
 
         [HttpDelete]
@@ -53,7 +53,7 @@ namespace ProjetoEngenhariaSoftware.Controllers
         {
             try
             {
-                Banco.delete(id);
+                BancoPet.delete(id);
                 return Content(HttpStatusCode.OK, true);
             }
             catch
